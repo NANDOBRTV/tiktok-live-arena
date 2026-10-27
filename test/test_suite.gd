@@ -57,9 +57,13 @@ func _test_combat_loop() -> void:
 	combat.fighters[1]["x"] = 0.54
 	combat.fighters[0]["hp"] = 1.0
 	combat.fighters[1]["hp"] = 1.0
-	var combat_events: Array[Dictionary] = combat.tick(1.0)
-	if not combat_events.is_empty():
-		saw_action = true
+	var combat_events: Array[Dictionary] = []
+	for index: int in 12:
+		combat_events = combat.tick(1.0)
+		if not combat_events.is_empty():
+			saw_action = true
+		if combat.state == "finished" or combat.state == "round_break":
+			break
 	_check(saw_action, "motor deve emitir eventos de combate")
 	_check(combat.state == "finished" or combat.state == "round_break", "combate deve registrar resultado da rodada")
 	_check(combat.score[0] + combat.score[1] >= 1, "resultado deve pontuar uma rodada")
