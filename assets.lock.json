@@ -1,6 +1,10 @@
 {
   "version": 2,
   "groups": {
+    "livearena": {
+      "name": "Livearena",
+      "order": 20
+    },
     "template": {
       "name": "Template",
       "order": 0
@@ -8,6 +12,46 @@
   },
   "bundles": {},
   "assets": {
+    "assets/livearena/characters/capitao_brasa.png": {
+      "path": "/manus-storage/game/sha256/fe6003c60e084528805d869f1a64bac74b2c881c0246a45488c1b4799b67e12f.png",
+      "sha256": "sha256:fe6003c60e084528805d869f1a64bac74b2c881c0246a45488c1b4799b67e12f",
+      "size": 4197076,
+      "assetType": "image",
+      "groupId": "livearena",
+      "used": true
+    },
+    "assets/livearena/characters/guardiao_dourado.png": {
+      "path": "/manus-storage/game/sha256/236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda.png",
+      "sha256": "sha256:236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda",
+      "size": 4964705,
+      "assetType": "image",
+      "groupId": "livearena",
+      "used": true
+    },
+    "assets/livearena/characters/raio_azul.png": {
+      "path": "/manus-storage/game/sha256/67496cba3f451e69ae1e3d16ac46312121236cf6e87d0f982a63240a6fe61a45.png",
+      "sha256": "sha256:67496cba3f451e69ae1e3d16ac46312121236cf6e87d0f982a63240a6fe61a45",
+      "size": 3777520,
+      "assetType": "image",
+      "groupId": "livearena",
+      "used": true
+    },
+    "assets/livearena/characters/sombra_negra.png": {
+      "path": "/manus-storage/game/sha256/e898b0eedce8345419fd775102206294a4f9b429e2a26e29a568d64adc19a88f.png",
+      "sha256": "sha256:e898b0eedce8345419fd775102206294a4f9b429e2a26e29a568d64adc19a88f",
+      "size": 3537003,
+      "assetType": "image",
+      "groupId": "livearena",
+      "used": true
+    },
+    "assets/livearena/environment/arena_futurista.png": {
+      "path": "/manus-storage/game/sha256/d6714964ee391ce2d00c26932637b24a42360cffead28bb14093e5735b5ed21d.png",
+      "sha256": "sha256:d6714964ee391ce2d00c26932637b24a42360cffead28bb14093e5735b5ed21d",
+      "size": 5607335,
+      "assetType": "image",
+      "groupId": "livearena",
+      "used": true
+    },
     "assets/template/characters/runner.png": {
       "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/06/game-template/game-generic/2026.09.07-minimalist-v1/c88485773d6ff9361e036f37d8ac76fb77b8c3f7c041c3f52c8dd222adc8cc21/assets/characters/runner.png",
       "sha256": "sha256:c88485773d6ff9361e036f37d8ac76fb77b8c3f7c041c3f52c8dd222adc8cc21",
@@ -30,7 +74,7 @@
       "size": 971282,
       "assetType": "image",
       "groupId": "template",
-      "used": true
+      "used": false
     },
     "assets/template/environment/foreground.png": {
       "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/06/game-template/game-generic/2026.09.07-minimalist-v1/4b6916024c69961fbfa7cdc929c68f547fea4561e61ebdb3405b3aba0efbd94d/assets/environment/foreground.png",
@@ -38,7 +82,7 @@
       "size": 58603,
       "assetType": "image",
       "groupId": "template",
-      "used": true
+      "used": false
     },
     "assets/template/fonts/Figtree-VF.subset.woff2": {
       "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/25/game-template/game-generic/2026.09.25-typography-v1/b3976c5969c8b1afd81dc3e314b61d8ffe3f3f58cf40906443105d330e6e0bdf/assets/template/fonts/Figtree-VF.subset.woff2",
@@ -110,7 +154,7 @@
       "size": 473356,
       "assetType": "image",
       "groupId": "template",
-      "used": true
+      "used": false
     },
     "assets/template/ui/pause_glass.png": {
       "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/06/game-template/game-generic/2026.09.07-minimalist-v1/c88a4725838df85e72c7270865848f275b62c525c5679a2a8b7ecefb1af82d4b/assets/ui/pause_glass.png",
@@ -118,7 +162,7 @@
       "size": 115691,
       "assetType": "image",
       "groupId": "template",
-      "used": true
+      "used": false
     },
     "assets/template/ui/title_glass.png": {
       "path": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/06/game-template/game-generic/2026.09.07-minimalist-v1/8860db07768f093d4effea10b51431f76a1552d4bc7fd4e57757f189c51f0429/assets/ui/title_glass.png",
@@ -126,7 +170,7 @@
       "size": 155592,
       "assetType": "image",
       "groupId": "template",
-      "used": true
+      "used": false
     }
   }
 }

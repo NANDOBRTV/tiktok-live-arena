@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "publicationOrigin": "https://livearena-hrawkyh9.manus.game",
+  "title": "TikTok LIVE Arena",
+  "description": "Arena 2D original de combate automático para transmissões ao vivo.",
+  "defaultCaptions": {},
+  "assets": {
+    "favicon": {
+      "digest": "sha256:61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d",
+      "path": "share/61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d.png",
+      "mime": "image/png",
+      "width": 1920,
+      "height": 1920,
+      "sizeBytes": 4169958
+    }
+  }
+}
