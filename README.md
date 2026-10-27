@@ -54,3 +54,13 @@ Até que essa ponte exista, o jogo permanece explicitamente no modo demonstraç�
 ## Limites conhecidos
 
 O painel administrativo atual é local e serve para configurar duração e reinício da demonstração. Autenticação server-side, estado oficial multi-cliente e WebSocket de produção dependem da ativação posterior de um backend. A versão atual foi construída para permitir testes locais seguros sem simular a conexão TikTok.
+
+## Atualizações recentes — outubro de 2026
+
+- O motor de combate inicia as rodadas com contagem regressiva e usa um intervalo maior entre decisões de ataque.
+- A vida inicial dos lutadores foi aumentada para 160, o dano básico/crítico foi reduzido e especiais têm recarga maior para evitar encerramentos em poucos segundos.
+- Foram adicionadas artes vetoriais próprias para Lula, Flávio Bolsonaro e o fundo futurista em `assets/livearena/`; a interface usa animações de movimento, impacto e especiais sobre os personagens.
+- A rotina de testes foi adaptada para respeitar a contagem regressiva e verificar o resultado da rodada. O tema também tem fallback quando as fontes web opcionais não estão disponíveis.
+- O GitHub Actions agora importa os recursos, roda os testes e exporta o jogo Godot para GitHub Pages antes de publicar.
+
+**Limitação conhecida:** as artes vetoriais atuais são sprites estáticos animados pela interface; ainda não são uma folha de sprites quadro a quadro. A integração com presentes reais do TikTok LIVE permanece bloqueada até existir uma ponte de backend autorizada e configurada. Os botões de presente disponíveis na demonstração são simulados.
