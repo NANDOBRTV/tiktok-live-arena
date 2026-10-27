@@ -24,8 +24,8 @@ func _capture() -> void:
 	await process_frame
 	if game_mode:
 		if new_characters:
-			(main.get("left_select") as OptionButton).select(4)
-			(main.get("right_select") as OptionButton).select(5)
+			(main.get("left_select") as OptionButton).select(0)
+			(main.get("right_select") as OptionButton).select(1)
 		main.call("_start_demo_battle")
 		await process_frame
 		await process_frame

@@ -1,29 +1,5 @@
 {
   "assets": {
-    "assets/livearena/characters/capitao_brasa.png": {
-      "declaredUseEvidence": [],
-      "generator": {},
-      "inputs": [],
-      "license": {},
-      "origin": "unknown",
-      "referenceEvidence": [
-        "project.godot",
-        "scripts/main.gd"
-      ],
-      "regions": [],
-      "sha256": "sha256:fe6003c60e084528805d869f1a64bac74b2c881c0246a45488c1b4799b67e12f",
-      "shipped": true,
-      "size": 4197076,
-      "source": {},
-      "status": "present",
-      "transformations": [],
-      "useEvidence": [
-        "project.godot",
-        "scripts/main.gd"
-      ],
-      "used": true,
-      "usedBy": []
-    },
     "assets/livearena/characters/flavio_bolsonaro.png": {
       "declaredUseEvidence": [],
       "generator": {},
@@ -34,9 +10,9 @@
         "scripts/main.gd"
       ],
       "regions": [],
-      "sha256": "sha256:4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91",
+      "sha256": "sha256:6cdfb57759f7af81d464e1a69806452fff71fa3fcb6d45b49ae40be20ca460d5",
       "shipped": true,
-      "size": 5014390,
+      "size": 4008947,
       "source": {},
       "status": "present",
       "transformations": [],
@@ -44,29 +20,21 @@
         "scripts/main.gd"
       ],
       "used": true,
-      "usedBy": []
-    },
-    "assets/livearena/characters/guardiao_dourado.png": {
-      "declaredUseEvidence": [],
-      "generator": {},
-      "inputs": [],
-      "license": {},
-      "origin": "unknown",
-      "referenceEvidence": [
-        "scripts/main.gd"
-      ],
-      "regions": [],
-      "sha256": "sha256:236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda",
-      "shipped": true,
-      "size": 4964705,
-      "source": {},
-      "status": "present",
-      "transformations": [],
-      "useEvidence": [
-        "scripts/main.gd"
-      ],
-      "used": true,
-      "usedBy": []
+      "usedBy": [],
+      "versions": {
+        "sha256:4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91": {
+          "generator": {},
+          "inputs": [],
+          "license": {},
+          "origin": "unknown",
+          "regions": [],
+          "sha256": "sha256:4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91",
+          "size": 5014390,
+          "source": {},
+          "transformations": [],
+          "usedBy": []
+        }
+      }
     },
     "assets/livearena/characters/lula.png": {
       "declaredUseEvidence": [],
@@ -75,64 +43,36 @@
       "license": {},
       "origin": "unknown",
       "referenceEvidence": [
+        "project.godot",
         "scripts/main.gd"
       ],
       "regions": [],
-      "sha256": "sha256:8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0",
+      "sha256": "sha256:67729444667afe7ebbd0b1bfb6e0b7e6a8f831a0d122b93cb8cb1cf88cd6f039",
       "shipped": true,
-      "size": 5258162,
+      "size": 4405667,
       "source": {},
       "status": "present",
       "transformations": [],
       "useEvidence": [
+        "project.godot",
         "scripts/main.gd"
       ],
       "used": true,
-      "usedBy": []
-    },
-    "assets/livearena/characters/raio_azul.png": {
-      "declaredUseEvidence": [],
-      "generator": {},
-      "inputs": [],
-      "license": {},
-      "origin": "unknown",
-      "referenceEvidence": [
-        "scripts/main.gd"
-      ],
-      "regions": [],
-      "sha256": "sha256:67496cba3f451e69ae1e3d16ac46312121236cf6e87d0f982a63240a6fe61a45",
-      "shipped": true,
-      "size": 3777520,
-      "source": {},
-      "status": "present",
-      "transformations": [],
-      "useEvidence": [
-        "scripts/main.gd"
-      ],
-      "used": true,
-      "usedBy": []
-    },
-    "assets/livearena/characters/sombra_negra.png": {
-      "declaredUseEvidence": [],
-      "generator": {},
-      "inputs": [],
-      "license": {},
-      "origin": "unknown",
-      "referenceEvidence": [
-        "scripts/main.gd"
-      ],
-      "regions": [],
-      "sha256": "sha256:e898b0eedce8345419fd775102206294a4f9b429e2a26e29a568d64adc19a88f",
-      "shipped": true,
-      "size": 3537003,
-      "source": {},
-      "status": "present",
-      "transformations": [],
-      "useEvidence": [
-        "scripts/main.gd"
-      ],
-      "used": true,
-      "usedBy": []
+      "usedBy": [],
+      "versions": {
+        "sha256:8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0": {
+          "generator": {},
+          "inputs": [],
+          "license": {},
+          "origin": "unknown",
+          "regions": [],
+          "sha256": "sha256:8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0",
+          "size": 5258162,
+          "source": {},
+          "transformations": [],
+          "usedBy": []
+        }
+      }
     },
     "assets/livearena/environment/arena_futurista.png": {
       "declaredUseEvidence": [],
@@ -485,15 +425,15 @@
       {
         "contentMatches": [],
         "path": "index.apple-touch-icon.png",
-        "sha256": "sha256:a73fc380c4ae878ba3ffe30f4d720ab9422ff2abd7fb40f18c0798dac28e1d85",
-        "size": 61287,
+        "sha256": "sha256:eac327e2f26217f1d441806633f86455b8409dd60bf3fdca357f825e20017f36",
+        "size": 67958,
         "sourcePaths": []
       },
       {
         "contentMatches": [],
         "path": "index.icon.png",
-        "sha256": "sha256:61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d",
-        "size": 4169958,
+        "sha256": "sha256:20b11b7682bcf636004c4aa6baa8441e8ceef5670bac5e066a2ed91de546e45d",
+        "size": 4391250,
         "sourcePaths": []
       },
       {
@@ -505,15 +445,15 @@
       },
       {
         "contentMatches": [],
-        "path": "share/61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d.png",
-        "sha256": "sha256:61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d",
-        "size": 4169958,
+        "path": "share/20b11b7682bcf636004c4aa6baa8441e8ceef5670bac5e066a2ed91de546e45d.png",
+        "sha256": "sha256:20b11b7682bcf636004c4aa6baa8441e8ceef5670bac5e066a2ed91de546e45d",
+        "size": 4391250,
         "sourcePaths": []
       }
     ],
-    "pckSha256": "sha256:ea98cf61e611e4300f9030ddfa78f09ee9f71bc2111cb1421b248baf3e0e59b5",
+    "pckSha256": "sha256:63c414c9bf0bd8d39fe1236f9aa433c85120af698d2560e7ca97b3c3a1488940",
     "profile": "release",
-    "sourceFingerprint": "sha256:ecaf1e85909d3417f651627ffb49d58a57695016feab75fed4dfb418f5914cc2"
+    "sourceFingerprint": "sha256:04ccba94fdd86473701f95c15391f407340cf25cdb8da3241e177b96eba4deaf"
   },
   "procedures": {},
   "summary": {
@@ -546,9 +486,9 @@
     },
     "files": {
       "downloaded": 0,
-      "retained": 22,
-      "shipped": 22,
-      "used": 9
+      "retained": 18,
+      "shipped": 18,
+      "used": 5
     },
     "origins": {
       "ai": {
@@ -582,9 +522,9 @@
         "used": 2
       },
       "unknown": {
-        "retained": 7,
-        "shipped": 7,
-        "used": 7
+        "retained": 3,
+        "shipped": 3,
+        "used": 3
       }
     },
     "packs": {

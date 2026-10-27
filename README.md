@@ -1,6 +1,6 @@
 # TikTok LIVE Arena
 
-Jogo web 2D de batalha automática para transmissões ao vivo. A versão atual entrega uma arena funcional local, seis lutadores originais ou satíricos gerados para o projeto, combate automático por regras, presentes simulados, histórico local e modo de transmissão limpo para captura no OBS.
+Jogo web 2D de batalha automática para transmissões ao vivo. A versão atual entrega uma arena funcional local, dois lutadores satíricos gerados a partir da referência visual fornecida, combate automático por regras, presentes simulados, histórico local e modo de transmissão limpo para captura no OBS.
 
 ## Executar localmente
 
@@ -36,16 +36,18 @@ Clique em **Abrir modo transmissão**. O modo oculta controles administrativos e
 - `scripts/main.gd`: telas, HUD responsivo, animações, modo transmissão e persistência local.
 - `scripts/game/combat_engine.gd`: estado autoritativo local, atributos, dano, críticos, especiais, rodadas e resultados.
 - `scripts/integration/gift_manager.gd`: catálogo, validação, limites, deduplicação e multiplicadores.
-- `scripts/integration/tiktok_live_adapter.gd`: adaptador isolado com estado honesto de conexão.
+- `scripts/integration/tiktok_live_connector.gd`: contrato do TikTok LIVE Connector para gifts, comandos, deduplicação, ranking e estado de conexão.
 - `scripts/effects/arena_fx.gd`: efeitos visuais de impactos, especiais e presentes.
 - `test/test_suite.gd`: verificações automatizadas do loop, presentes, integração e ativos.
-- `assets/livearena/`: arte original dos seis lutadores e da arena futurista.
+- `assets/livearena/`: arte de Lula, Flávio Bolsonaro e da arena futurista.
 
-O elenco inclui Capitão Brasa, Raio Azul, Sombra Negra, Guardião Dourado, Lula e Flávio Bolsonaro. Os dois últimos são apresentados como avatares fictícios e satíricos de jogo, sem slogans, logotipos ou afirmações sobre a vida real.
+O elenco contém somente Lula e Flávio Bolsonaro, apresentados como avatares fictícios e satíricos de jogo, sem slogans, logotipos ou afirmações sobre a vida real.
+
+Na demonstração, a **Flor Rosa** é direcionada automaticamente para Lula e a **Rosa Branca** é direcionada automaticamente para Flávio Bolsonaro. O connector também reconhece TikTok, Leão, Carro, Foguete, Arco-íris, Coroa e Vaca, além dos comandos `!ataque`, `!defesa`, `!força` e `!zoeira`.
 
 ## Integração TikTok LIVE
 
-A integração real **não está concluída nesta versão**. O botão **Conectar TikTok LIVE** mostra `indisponível` e bloqueia eventos reais porque nenhum backend autorizado foi configurado. Para concluir essa etapa, será necessário um serviço de servidor autorizado que use somente documentação/API oficial ou integração autorizada pelo TikTok, mantenha tokens exclusivamente no servidor, valide assinatura/usuário/presente/quantidade/ID, encaminhe eventos para o adaptador com IDs estáveis e trate desconexão/reconexão. Não há endpoint, token ou método privado embutido no navegador.
+A integração real **não está concluída nesta versão**. O botão **Conectar TikTok LIVE** mostra `indisponível` e bloqueia eventos reais porque nenhum backend autorizado foi configurado. O `tiktok-live-connector.gd` já define gifts, comandos, ranking, deduplicação, reconexão e normalização de eventos, mas só aceita eventos depois de `mark_authorized_connection()` ser chamado por uma ponte oficial/autorizada no servidor. Não há endpoint, token ou método privado embutido no navegador.
 
 Até que essa ponte exista, o jogo permanece explicitamente no modo demonstração e não simula uma conexão real.
 

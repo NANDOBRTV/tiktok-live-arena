@@ -4,7 +4,7 @@
 
 - Arena futurista 2D com arquibancadas, telões, iluminação, profundidade e atmosfera.
 - Identidade visual original em português do Brasil, sem copiar personagens, logotipos ou artes protegidos.
-- Seis lutadores visualmente distintos: Capitão Brasa, Raio Azul, Sombra Negra, Guardião Dourado, Lula e Flávio Bolsonaro. Lula e Flávio Bolsonaro são avatares fictícios e satíricos de jogo, sem slogans, logotipos ou afirmações sobre a vida real.
+- Dois lutadores selecionáveis: Lula e Flávio Bolsonaro. Ambos são avatares fictícios e satíricos de jogo, sem slogans, logotipos ou afirmações sobre a vida real, regenerados seguindo a referência visual enviada.
 - Tela inicial com seleção de lutadores, iniciar jogo, configurar arena, modo demonstração, conexão TikTok LIVE, modo transmissão e estado visível da integração.
 - HUD responsivo com nomes, vida, energia, rodada, cronômetro, placar, especial, histórico e eventos de torcida.
 
@@ -16,7 +16,7 @@
 
 ## Entregue: presentes e demonstração
 
-- Rosa, Coração, Foguete e Coroa com regras observáveis e configuração centralizada.
+- Flor Rosa é direcionada a Lula; Rosa Branca é direcionada a Flávio Bolsonaro. O `tiktok-live-connector` reconhece também TikTok, Leão, Carro, Foguete, Arco-íris, Coroa, Vaca e os comandos `!ataque`, `!defesa`, `!força`, `!zoeira`.
 - Identificação de usuário, presente, quantidade, alvo e efeito no histórico.
 - Deduplicação por ID, limites, validação de payload e multiplicador de repetição em janela controlada.
 - Modo Demonstração explicitamente marcado; nenhum evento simulado é apresentado como conexão TikTok real.

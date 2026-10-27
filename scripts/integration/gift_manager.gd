@@ -4,10 +4,15 @@ extends RefCounted
 ## Camada única para eventos simulados e eventos autorizados futuros.
 
 const CONFIG := {
-	"rosa": {"label": "Rosa", "cooldown": 0.25, "description": "Energia leve"},
-	"coracao": {"label": "Coração", "cooldown": 0.4, "description": "Vida + energia"},
-	"foguete": {"label": "Foguete", "cooldown": 1.5, "description": "Golpe poderoso"},
-	"coroa": {"label": "Coroa", "cooldown": 2.5, "description": "Impacto máximo"},
+	"flor-rosa": {"label": "Flor Rosa", "cooldown": 0.25, "description": "Energia para Lula", "fixed_target": 0},
+	"rosa-branca": {"label": "Rosa Branca", "cooldown": 0.25, "description": "Energia para Flávio Bolsonaro", "fixed_target": 1},
+	"tiktok": {"label": "TikTok", "cooldown": 0.3, "description": "Ânimo do time", "fixed_target": -1},
+	"leao": {"label": "Leão", "cooldown": 0.8, "description": "Aliado especial", "fixed_target": -1},
+	"carro": {"label": "Carro", "cooldown": 0.8, "description": "Boost de velocidade", "fixed_target": -1},
+	"foguete": {"label": "Foguete", "cooldown": 1.5, "description": "Golpe poderoso", "fixed_target": -1},
+	"arco-iris": {"label": "Arco-íris", "cooldown": 1.0, "description": "Energia e proteção", "fixed_target": -1},
+	"coroa": {"label": "Coroa", "cooldown": 2.5, "description": "Virada máxima", "fixed_target": -1},
+	"vaca": {"label": "Vaca", "cooldown": 0.7, "description": "Confusão na arena", "fixed_target": -1},
 }
 
 var processed_ids: Dictionary = {}
@@ -27,6 +32,9 @@ func process_event(event: Dictionary, engine: Object, simulated: bool = false) -
 		return {"ok": false, "reason": "limite", "text": "Limite temporário de eventos atingido."}
 	var gift_type := str(event.get("gift_type", ""))
 	var target := clampi(int(event.get("target", 0)), 0, 1)
+	var fixed_target := int(CONFIG[gift_type].get("fixed_target", -1))
+	if fixed_target >= 0:
+		target = fixed_target
 	var quantity := clampi(int(event.get("quantity", 1)), 1, 20)
 	var prior := recent_by_gift.get(gift_type, {"at": 0.0, "count": 0}) as Dictionary
 	var multiplier := 1.0
@@ -59,6 +67,9 @@ func _valid_payload(event: Dictionary) -> bool:
 		return false
 	if int(event.get("quantity", 1)) < 1:
 		return false
+	var gift_type := str(event.get("gift_type", ""))
+	if int(CONFIG[gift_type].get("fixed_target", -1)) >= 0:
+		return true
 	return int(event.get("target", 0)) in [0, 1]
 
 

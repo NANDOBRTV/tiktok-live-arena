@@ -2,14 +2,10 @@ extends Control
 
 const CombatEngineType = preload("res://scripts/game/combat_engine.gd")
 const GiftManagerType = preload("res://scripts/integration/gift_manager.gd")
-const TikTokAdapterType = preload("res://scripts/integration/tiktok_live_adapter.gd")
+const TikTokConnectorType = preload("res://scripts/integration/tiktok_live_connector.gd")
 const FxType = preload("res://scripts/effects/arena_fx.gd")
 
 const ARENA_ART = preload("res://assets/livearena/environment/arena_futurista.png")
-const CAPITAO_ART = preload("res://assets/livearena/characters/capitao_brasa.png")
-const RAIO_ART = preload("res://assets/livearena/characters/raio_azul.png")
-const SOMBRA_ART = preload("res://assets/livearena/characters/sombra_negra.png")
-const GUARDIAO_ART = preload("res://assets/livearena/characters/guardiao_dourado.png")
 const LULA_ART = preload("res://assets/livearena/characters/lula.png")
 const FLAVIO_ART = preload("res://assets/livearena/characters/flavio_bolsonaro.png")
 
@@ -26,7 +22,7 @@ const VIOLET := Color("ae7bff")
 
 var engine: ArenaCombatEngine
 var gifts: ArenaGiftManager
-var tiktok: TikTokLiveAdapter
+var tiktok: TikTokLiveConnector
 var match_duration := 45.0
 var auto_restart := false
 var demo_mode := true
@@ -63,7 +59,7 @@ var connection_label: Label
 var special_label: Label
 var transmission_label: Label
 var fighter_nodes: Array[TextureRect] = []
-var fighter_ids: Array[String] = ["capitao-brasa", "raio-azul"]
+var fighter_ids: Array[String] = ["lula", "flavio-bolsonaro"]
 var left_select: OptionButton
 var right_select: OptionButton
 var target_select: OptionButton
@@ -83,9 +79,10 @@ func _ready() -> void:
 	rng.seed = 7281
 	engine = CombatEngineType.new()
 	gifts = GiftManagerType.new()
-	tiktok = TikTokAdapterType.new()
+	tiktok = TikTokConnectorType.new()
 	tiktok.state_changed.connect(_on_live_state)
 	tiktok.authorized_event_received.connect(_on_authorized_event)
+	tiktok.command_received.connect(_on_live_command)
 	_load_config()
 	_load_history()
 	_build_background()
@@ -271,8 +268,8 @@ func _build_battle() -> void:
 	_anchored(right_energy, 0.66, 0.225, 0.96, 0.242)
 	battle_root.add_child(right_energy)
 	for entry: Dictionary in [
-		{"texture": CAPITAO_ART, "side": 0},
-		{"texture": RAIO_ART, "side": 1},
+		{"texture": LULA_ART, "side": 0},
+		{"texture": FLAVIO_ART, "side": 1},
 	]:
 		var fighter := TextureRect.new()
 		fighter.texture = entry["texture"]
@@ -356,11 +353,11 @@ func _build_battle_controls() -> void:
 	gift_controls.position = Vector2(0.0, 48.0)
 	gift_controls.set_anchors_preset(Control.PRESET_TOP_WIDE)
 	battle_controls.add_child(gift_controls)
-	for config: Array in [["ROSA", "rosa", Color("e86aaf")], ["CORAÇÃO", "coracao", Color("ed6684")], ["FOGUETE", "foguete", Color("ff814c")], ["COROA", "coroa", GOLD]]:
+	for config: Array in [["FLOR ROSA → LULA", "flor-rosa", Color("f084ba")], ["ROSA BRANCA → FLÁVIO", "rosa-branca", Color("f1f4ff")], ["FOGUETE", "foguete", Color("ff814c")], ["COROA", "coroa", GOLD]]:
 		var gift_button := _button(config[0], config[2], 90.0)
 		gift_button.pressed.connect(_send_demo_gift.bind(config[1]))
 		gift_controls.add_child(gift_button)
-	var hint := _label("Presentes acima são simulados e aparecem no histórico com identificação DEMO.", 10, Color("8291ae"))
+	var hint := _label("DEMO: flores têm alvo fixo • LIVE: !ataque  !defesa  !força  !zoeira • gifts e ranking via tiktok-live-connector", 10, Color("8291ae"))
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	hint.position = Vector2(0.0, 86.0)
 	hint.set_anchors_preset(Control.PRESET_TOP_WIDE)
@@ -440,7 +437,7 @@ func _build_admin() -> void:
 	sound.disabled = true
 	sound.add_theme_color_override("font_color", MUTED)
 	content.add_child(sound)
-	var info := _label("Presentes: Rosa = energia • Coração = vida + energia • Foguete = golpe poderoso • Coroa = impacto máximo. Repetições em janela de 4 s geram multiplicador validado.", 12, MUTED)
+	var info := _label("Presentes: Flor Rosa sempre apoia Lula • Rosa Branca sempre apoia Flávio Bolsonaro • TikTok, Leão, Carro, Foguete, Arco-íris, Coroa e Vaca têm efeitos próprios. Repetições em janela de 4 s geram multiplicador validado.", 12, MUTED)
 	info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	content.add_child(info)
 	var close := _button("SALVAR E FECHAR", CYAN, 220.0)
@@ -455,7 +452,7 @@ func _start_demo_battle() -> void:
 	admin_visible = false
 	admin_panel.visible = false
 	result_panel.visible = false
-	fighter_ids = [_selected_id(left_select, "capitao-brasa"), _selected_id(right_select, "raio-azul")]
+	fighter_ids = [_selected_id(left_select, "lula"), _selected_id(right_select, "flavio-bolsonaro")]
 	engine.setup(fighter_ids[0], fighter_ids[1], match_duration)
 	gifts.reset()
 	battle_root.visible = true
@@ -508,6 +505,32 @@ func _on_authorized_event(event: Dictionary) -> void:
 		_push_event("[color=#ff7d7d]LIVE BLOQUEADO[/color] %s" % result.get("text", "Evento rejeitado"))
 
 
+func _on_live_command(command: Dictionary) -> void:
+	if not battle_active:
+		return
+	var target := clampi(int(command.get("target", 0)), 0, 1)
+	var command_name := str(command.get("command", ""))
+	var gift_type := "tiktok"
+	match command_name:
+		"ataque": gift_type = "foguete"
+		"defesa": gift_type = "arco-iris"
+		"forca": gift_type = "flor-rosa" if target == 0 else "rosa-branca"
+		"zoeira": gift_type = "vaca"
+		_: return
+	var result := gifts.process_event({
+		"id": str(command.get("id", "command-%d" % Time.get_ticks_msec())),
+		"gift_type": gift_type,
+		"quantity": 1,
+		"target": target,
+		"user": str(command.get("user", "Torcida")),
+	}, engine, false)
+	if bool(result.get("ok", false)):
+		_push_event("[color=#ee67ce]COMANDO LIVE[/color] %s → %s" % [command.get("raw", command_name), result.get("text", "Aplicado")])
+		_emit_gift_fx(result)
+	else:
+		_push_event("[color=#ff7d7d]COMANDO BLOQUEADO[/color] %s" % result.get("text", "Comando rejeitado"))
+
+
 func _send_demo_gift(gift_type: String) -> void:
 	if not demo_mode or not battle_active:
 		return
@@ -528,10 +551,12 @@ func _send_demo_gift(gift_type: String) -> void:
 
 func _emit_gift_fx(result: Dictionary) -> void:
 	var target := int(result.get("target", 0))
-	var color := MAGENTA if str(result.get("gift_type", "")) == "coracao" else GOLD
+	var color := MAGENTA if str(result.get("gift_type", "")) == "flor-rosa" else GOLD
 	if str(result.get("gift_type", "")) == "foguete":
 		color = FIRE
-	elif str(result.get("gift_type", "")) == "rosa":
+	elif str(result.get("gift_type", "")) == "rosa-branca":
+		color = Color("f1f4ff")
+	elif str(result.get("gift_type", "")) == "flor-rosa":
 		color = Color("ff94c8")
 	fx.emit_burst(_fighter_center(target), color, "special" if str(result.get("gift_type", "")) in ["foguete", "coroa"] else "impact")
 	special_label.text = "%s • %s" % [str(result.get("label", "PRESENTE")).to_upper(), str(result.get("text", ""))]
@@ -799,13 +824,9 @@ func _selected_id(option: OptionButton, fallback: String) -> String:
 
 func _texture_for(id: String) -> Texture2D:
 	match id:
-		"capitao-brasa": return CAPITAO_ART
-		"raio-azul": return RAIO_ART
-		"sombra-negra": return SOMBRA_ART
-		"guardiao-dourado": return GUARDIAO_ART
 		"lula": return LULA_ART
 		"flavio-bolsonaro": return FLAVIO_ART
-	return CAPITAO_ART
+	return LULA_ART
 
 
 func _anchored(control: Control, left: float, top: float, right: float, bottom: float) -> void:

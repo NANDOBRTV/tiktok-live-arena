@@ -3,7 +3,7 @@
   "engineVersion": "4.7.2.stable.official.ed1daf0bf",
   "inputs": {
     "objectFormat": "sha1",
-    "tree": "6d22328b5c9dc353334290de8d7e856e2f151386",
+    "tree": "f21c23138ec830d6c39c3c99d564f0943d21afb8",
     "entries": [
       {
         "path": ".gitignore",
@@ -27,85 +27,41 @@
         "path": "README.md",
         "type": "file",
         "mode": "100644",
-        "object": "5e9b1550ac00bea4f756acf8680b92168ac9ba51"
+        "object": "3d4cca383f358db1d22f0020323008acfb6292df"
       },
       {
         "path": "TODO.md",
         "type": "file",
         "mode": "100644",
-        "object": "e98827f6063dcb5e954fe94fe5ac27256734ab66"
+        "object": "f1d2868c5fe26c740cc61b5ee89b1d80b83ccc20"
       },
       {
         "path": "assets.lock.json",
         "type": "file",
         "mode": "100644",
-        "object": "e151fdce652eef1a9488ae309cffa8df8a520c87"
-      },
-      {
-        "path": "assets/livearena/characters/capitao_brasa.png",
-        "type": "managed",
-        "sha256": "sha256:fe6003c60e084528805d869f1a64bac74b2c881c0246a45488c1b4799b67e12f"
-      },
-      {
-        "path": "assets/livearena/characters/capitao_brasa.png.import",
-        "type": "file",
-        "mode": "100644",
-        "object": "db60ac90b306eca98ea48c2a72831bfd7d43a174"
+        "object": "e58ab308edf55c661798021155b2d7a7de88413d"
       },
       {
         "path": "assets/livearena/characters/flavio_bolsonaro.png",
         "type": "managed",
-        "sha256": "sha256:4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91"
+        "sha256": "sha256:6cdfb57759f7af81d464e1a69806452fff71fa3fcb6d45b49ae40be20ca460d5"
       },
       {
         "path": "assets/livearena/characters/flavio_bolsonaro.png.import",
         "type": "file",
         "mode": "100644",
-        "object": "63a691987dc288fc481a37615cd13cc5eb2e03b6"
-      },
-      {
-        "path": "assets/livearena/characters/guardiao_dourado.png",
-        "type": "managed",
-        "sha256": "sha256:236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda"
-      },
-      {
-        "path": "assets/livearena/characters/guardiao_dourado.png.import",
-        "type": "file",
-        "mode": "100644",
-        "object": "5eebaae456598bc70516c6046cb95df6cc469e20"
+        "object": "668a2d2504170189dca7b472470ec94a913b696e"
       },
       {
         "path": "assets/livearena/characters/lula.png",
         "type": "managed",
-        "sha256": "sha256:8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0"
+        "sha256": "sha256:67729444667afe7ebbd0b1bfb6e0b7e6a8f831a0d122b93cb8cb1cf88cd6f039"
       },
       {
         "path": "assets/livearena/characters/lula.png.import",
         "type": "file",
         "mode": "100644",
-        "object": "dea1fdbc7b5f10262163fa1d84da32d1dfef6606"
-      },
-      {
-        "path": "assets/livearena/characters/raio_azul.png",
-        "type": "managed",
-        "sha256": "sha256:67496cba3f451e69ae1e3d16ac46312121236cf6e87d0f982a63240a6fe61a45"
-      },
-      {
-        "path": "assets/livearena/characters/raio_azul.png.import",
-        "type": "file",
-        "mode": "100644",
-        "object": "933d16f95560c32730f3a1a43f53e4f20a747d7d"
-      },
-      {
-        "path": "assets/livearena/characters/sombra_negra.png",
-        "type": "managed",
-        "sha256": "sha256:e898b0eedce8345419fd775102206294a4f9b429e2a26e29a568d64adc19a88f"
-      },
-      {
-        "path": "assets/livearena/characters/sombra_negra.png.import",
-        "type": "file",
-        "mode": "100644",
-        "object": "d7fbe617fc763cb60294c8cea7290087c227e5bd"
+        "object": "0f834fbc0522fbee2fce9b51e0614bb65057469e"
       },
       {
         "path": "assets/livearena/environment/arena_futurista.png",
@@ -512,6 +468,18 @@
         "object": "8c6e755bcd59e5c29eff4fbe4805dc0ad7711c50"
       },
       {
+        "path": "docs/lula-flavio-final-capture.png",
+        "type": "file",
+        "mode": "100644",
+        "object": "14361d7902fb2438969cbd17427a8a9cc3e2a015"
+      },
+      {
+        "path": "docs/lula-flavio-final-capture.png.import",
+        "type": "file",
+        "mode": "100644",
+        "object": "e418d5da44f4163fa19add903f9e84a47b2bb384"
+      },
+      {
         "path": "docs/minimalist-redesign.md",
         "type": "file",
         "mode": "100644",
@@ -563,7 +531,7 @@
         "path": "project.godot",
         "type": "file",
         "mode": "100644",
-        "object": "87916135935e1ea4b7efb671024943d87e833327"
+        "object": "6e23d37fe36cf9dd4b0b2c6244bf6386d1f5683c"
       },
       {
         "path": "scenes/main.tscn",
@@ -623,7 +591,7 @@
         "path": "scripts/game/combat_engine.gd",
         "type": "file",
         "mode": "100644",
-        "object": "8e508bd0209938d2f4aa7bfe5ab2f9086fc7c825"
+        "object": "a6b54a71abc27810d7f2c5f6030e6d90514bf3b2"
       },
       {
         "path": "scripts/game/combat_engine.gd.uid",
@@ -659,7 +627,7 @@
         "path": "scripts/integration/gift_manager.gd",
         "type": "file",
         "mode": "100644",
-        "object": "82e8c1b453aaff25818e6df1105dc480706ac064"
+        "object": "48af7c81882320a8139cf239f77b14fe5944db22"
       },
       {
         "path": "scripts/integration/gift_manager.gd.uid",
@@ -680,10 +648,22 @@
         "object": "3d497053b7cdef4012eac59beff185e94637097a"
       },
       {
+        "path": "scripts/integration/tiktok_live_connector.gd",
+        "type": "file",
+        "mode": "100644",
+        "object": "6ee16a75d8812d8d5a6f73e74b30c0ba9e6951e8"
+      },
+      {
+        "path": "scripts/integration/tiktok_live_connector.gd.uid",
+        "type": "file",
+        "mode": "100644",
+        "object": "1e5abda5f7c0d8650832cebecbfc2196f77130a1"
+      },
+      {
         "path": "scripts/main.gd",
         "type": "file",
         "mode": "100644",
-        "object": "9a905e61f6946fe5b8460e5bb54aed1cd52c0bb0"
+        "object": "ca16d26784d4280045c7172744ba4a8676a88f25"
       },
       {
         "path": "scripts/main.gd.uid",
@@ -917,7 +897,7 @@
         "path": "test/test_suite.gd",
         "type": "file",
         "mode": "100644",
-        "object": "3642dd96b46b255fecedf7268ae40a83877fd785"
+        "object": "fa742b2ab86d46d8831f684f98c2b7fc5b2c04d6"
       },
       {
         "path": "test/test_suite.gd.uid",
@@ -959,7 +939,7 @@
         "path": "tools/capture_arena.gd",
         "type": "file",
         "mode": "100644",
-        "object": "12d3b2dcd6068ae672141743ffd40aa482f4489d"
+        "object": "fc3113218fea964ffce350c3f6dcb1f0a73eeaf3"
       },
       {
         "path": "tools/capture_arena.gd.uid",
@@ -1019,7 +999,7 @@
         "path": "tools/verify_exported_pack.gd",
         "type": "file",
         "mode": "100644",
-        "object": "adfb99bcfc2bd84c6082ad56417cfecc2de0c572"
+        "object": "e8581977349e144b0d1c8a586dd1f9c0502d236c"
       },
       {
         "path": "tools/verify_exported_pack.gd.uid",
@@ -1042,7 +1022,7 @@
     ]
   },
   "build": {
-    "snapshotId": "sha256:8a61171a02b83f5f820788cc641b3d9b4640152bc32eb3886b42f83daf483079",
+    "snapshotId": "sha256:68cce52e479f0f64d9bece04f1b7afe525a02f39e0fd62c108401ae569743680",
     "toolchain": {
       "engineVersion": "4.7.2.stable.official.ed1daf0bf",
       "engineDigest": "sha256:8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
@@ -1055,21 +1035,21 @@
     "profile": "release",
     "export": {
       "profile": "release",
-      "snapshotId": "sha256:8a61171a02b83f5f820788cc641b3d9b4640152bc32eb3886b42f83daf483079",
+      "snapshotId": "sha256:68cce52e479f0f64d9bece04f1b7afe525a02f39e0fd62c108401ae569743680",
       "files": {
         "THIRD_PARTY_NOTICES.txt": "sha256:c729a77bf07eb9745b2d89c3ce4ead3357438366f41743d2755ae35f98509cf9",
-        "index.apple-touch-icon.png": "sha256:a73fc380c4ae878ba3ffe30f4d720ab9422ff2abd7fb40f18c0798dac28e1d85",
+        "index.apple-touch-icon.png": "sha256:eac327e2f26217f1d441806633f86455b8409dd60bf3fdca357f825e20017f36",
         "index.audio.position.worklet.js": "sha256:be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
         "index.audio.worklet.js": "sha256:5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
-        "index.html": "sha256:632dbdd9f43118cc0f2df47fffa36a304b97c7bf440c4cb8c44ddc4ecbf72cb0",
-        "index.icon.png": "sha256:61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d",
+        "index.html": "sha256:dd9ead668b507d343a7cd3db6578f2e16cdbe2485aea4bd4722efedbb68799ec",
+        "index.icon.png": "sha256:20b11b7682bcf636004c4aa6baa8441e8ceef5670bac5e066a2ed91de546e45d",
         "index.js": "sha256:cb28c2d8ffd8981888823f1b6d98cdec4e3e11adf209ad556c22878e6d51c63a",
-        "index.pck": "sha256:ea98cf61e611e4300f9030ddfa78f09ee9f71bc2111cb1421b248baf3e0e59b5",
+        "index.pck": "sha256:63c414c9bf0bd8d39fe1236f9aa433c85120af698d2560e7ca97b3c3a1488940",
         "index.png": "sha256:3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
         "index.wasm": "sha256:fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
         "open-source-licenses.html": "sha256:9215f5fdd50039a9b6f3d8f0271cbc21bbdf64b917fb118dd29c8a16b9974e00"
       },
-      "digest": "sha256:1adba5bb89d82ffe56b9ae56d2684320b9191279887752f1daf1190f28388b2f"
+      "digest": "sha256:001136f98f5759793a8d185f8400e4e61a0c78c88c9da2042f4c59770a90232b"
     }
   },
   "artifacts": {
@@ -1078,21 +1058,21 @@
       "sha256": "sha256:fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
     },
     "pck": {
-      "path": "/manus-storage/game/sha256/ea98cf61e611e4300f9030ddfa78f09ee9f71bc2111cb1421b248baf3e0e59b5.pck",
-      "sha256": "sha256:ea98cf61e611e4300f9030ddfa78f09ee9f71bc2111cb1421b248baf3e0e59b5"
+      "path": "/manus-storage/game/sha256/63c414c9bf0bd8d39fe1236f9aa433c85120af698d2560e7ca97b3c3a1488940.pck",
+      "sha256": "sha256:63c414c9bf0bd8d39fe1236f9aa433c85120af698d2560e7ca97b3c3a1488940"
     }
   },
   "files": {
     "THIRD_PARTY_NOTICES.txt": "sha256:c729a77bf07eb9745b2d89c3ce4ead3357438366f41743d2755ae35f98509cf9",
-    "game-sharing.json": "sha256:daf00af0628eb4fe0a77f88fbbb4dea0639970a5d82afb9acbb3515c2cdc3b94",
-    "index.apple-touch-icon.png": "sha256:a73fc380c4ae878ba3ffe30f4d720ab9422ff2abd7fb40f18c0798dac28e1d85",
+    "game-sharing.json": "sha256:4780d591426b86bfd6237bb3feef22658220278c0af2624c0370f153ac98b4a2",
+    "index.apple-touch-icon.png": "sha256:eac327e2f26217f1d441806633f86455b8409dd60bf3fdca357f825e20017f36",
     "index.audio.position.worklet.js": "sha256:be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
     "index.audio.worklet.js": "sha256:5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
-    "index.html": "sha256:4b208d61eafb83820605afc1c1d00eb3e0a8fe76b3c90901650c80655cb66f66",
-    "index.icon.png": "sha256:61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d",
+    "index.html": "sha256:9c2fe58a32118bd2a945920bb7ca2a42b2f00e3e4d94bc3d3b08f4c5d90b59ec",
+    "index.icon.png": "sha256:20b11b7682bcf636004c4aa6baa8441e8ceef5670bac5e066a2ed91de546e45d",
     "index.js": "sha256:cb28c2d8ffd8981888823f1b6d98cdec4e3e11adf209ad556c22878e6d51c63a",
     "index.png": "sha256:3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
     "open-source-licenses.html": "sha256:9215f5fdd50039a9b6f3d8f0271cbc21bbdf64b917fb118dd29c8a16b9974e00",
-    "share/61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d.png": "sha256:61ae4cefdef3e869b296b89ac63a38d2ad0f07e62537c981931db91d777c334d"
+    "share/20b11b7682bcf636004c4aa6baa8441e8ceef5670bac5e066a2ed91de546e45d.png": "sha256:20b11b7682bcf636004c4aa6baa8441e8ceef5670bac5e066a2ed91de546e45d"
   }
 }

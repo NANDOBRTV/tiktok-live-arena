@@ -10,12 +10,10 @@ func _initialize() -> void:
 func _verify() -> void:
 	_check(ProjectSettings.get_setting("application/config/name") == "TikTok LIVE Arena", "identidade exportada")
 	for path: String in [
-		"assets/livearena/environment/arena_futurista.png",
-		"assets/livearena/characters/capitao_brasa.png",
-		"assets/livearena/characters/raio_azul.png",
-		"assets/livearena/characters/sombra_negra.png",
-		"assets/livearena/characters/guardiao_dourado.png",
-	]:
+			"assets/livearena/environment/arena_futurista.png",
+			"assets/livearena/characters/lula.png",
+			"assets/livearena/characters/flavio_bolsonaro.png",
+		]:
 		_check(ResourceLoader.exists("res://" + path), "recurso exportado: " + path)
 	_check(not ResourceLoader.exists("res://test/test_suite.tscn"), "cena de teste excluída")
 	_check(not ResourceLoader.exists("res://tools/capture_native.gd"), "ferramenta nativa excluída")

@@ -40,7 +40,7 @@ func setup(left_id: String, right_id: String, duration: float = 45.0) -> void:
 
 
 func _make_fighter(id: String, side: int) -> Dictionary:
-	var data := _catalog().get(id, _catalog().get("capitao-brasa")) as Dictionary
+	var data := _catalog().get(id, _catalog().get("lula")) as Dictionary
 	return {
 		"id": id,
 		"name": data.get("name", id),
@@ -246,13 +246,23 @@ func apply_gift(gift_type: String, target_index: int, quantity: int, multiplier:
 	var amount := float(quantity) * multiplier
 	var text := ""
 	match gift_type:
-		"rosa":
+		"flor-rosa":
 			target["energy"] = minf(100.0, float(target["energy"]) + 8.0 * amount)
 			text = "+%d energia para %s" % [int(8.0 * amount), target["name"]]
-		"coracao":
-			target["hp"] = minf(START_HP, float(target["hp"]) + 10.0 * amount)
-			target["energy"] = minf(100.0, float(target["energy"]) + 5.0 * amount)
-			text = "+%d vida e torcida para %s" % [int(10.0 * amount), target["name"]]
+		"rosa-branca":
+			target["hp"] = minf(START_HP, float(target["hp"]) + 8.0 * amount)
+			target["energy"] = minf(100.0, float(target["energy"]) + 8.0 * amount)
+			text = "Rosa branca: vida e energia para %s" % target["name"]
+		"tiktok":
+			target["energy"] = minf(100.0, float(target["energy"]) + 12.0 * amount)
+			text = "TikTok: ânimo para %s" % target["name"]
+		"leao":
+			target["energy"] = minf(100.0, float(target["energy"]) + 20.0 * amount)
+			text = "Leão: aliado especial de %s" % target["name"]
+		"carro":
+			target["speed"] = minf(35.0, float(target["speed"]) + 2.0 * amount)
+			target["energy"] = minf(100.0, float(target["energy"]) + 10.0 * amount)
+			text = "Carro: boost de velocidade para %s" % target["name"]
 		"foguete":
 			var enemy: Dictionary = fighters[1 - target_index]
 			enemy["hp"] = maxf(0.0, float(enemy["hp"]) - 22.0 * amount)
@@ -260,6 +270,11 @@ func apply_gift(gift_type: String, target_index: int, quantity: int, multiplier:
 			target["action"] = "special"
 			target["action_time"] = 0.9
 			text = "Foguete: %s desfere golpe de torcida" % target["name"]
+		"arco-iris":
+			target["hp"] = minf(START_HP, float(target["hp"]) + 20.0 * amount)
+			target["energy"] = minf(100.0, float(target["energy"]) + 18.0 * amount)
+			target["invulnerable"] = 0.9
+			text = "Arco-íris: energia e proteção para %s" % target["name"]
 		"coroa":
 			var rival: Dictionary = fighters[1 - target_index]
 			rival["hp"] = maxf(0.0, float(rival["hp"]) - 36.0 * amount)
@@ -267,6 +282,11 @@ func apply_gift(gift_type: String, target_index: int, quantity: int, multiplier:
 			target["action"] = "special"
 			target["action_time"] = 1.2
 			text = "Coroa: impacto máximo para %s" % target["name"]
+		"vaca":
+			var confused: Dictionary = fighters[1 - target_index]
+			confused["guard_timer"] = 0.0
+			confused["hp"] = maxf(0.0, float(confused["hp"]) - 7.0 * amount)
+			text = "Vaca: confusão na arena contra %s" % confused["name"]
 		_:
 			return {"ok": false, "text": "Presente não configurado."}
 	return {"ok": true, "text": text, "target": target_index, "gift_type": gift_type, "quantity": quantity}
@@ -309,10 +329,6 @@ static func catalog() -> Dictionary:
 
 static func _catalog() -> Dictionary:
 	return {
-		"capitao-brasa": {"name": "Capitão Brasa", "special": "Explosão de Fogo", "attack": 25.0, "defense": 11.0, "speed": 14.0, "special_power": 38.0, "dodge": 0.10},
-		"raio-azul": {"name": "Raio Azul", "special": "Tempestade Elétrica", "attack": 21.0, "defense": 9.0, "speed": 22.0, "special_power": 34.0, "dodge": 0.19},
-		"sombra-negra": {"name": "Sombra Negra", "special": "Corte das Sombras", "attack": 23.0, "defense": 10.0, "speed": 20.0, "special_power": 36.0, "dodge": 0.24},
-		"guardiao-dourado": {"name": "Guardião Dourado", "special": "Impacto Titânico", "attack": 30.0, "defense": 18.0, "speed": 9.0, "special_power": 43.0, "dodge": 0.07},
 		"lula": {"name": "Lula", "special": "Pulso Popular", "attack": 26.0, "defense": 13.0, "speed": 12.0, "special_power": 39.0, "dodge": 0.11},
 		"flavio-bolsonaro": {"name": "Flávio Bolsonaro", "special": "Impulso Esmeralda", "attack": 24.0, "defense": 12.0, "speed": 16.0, "special_power": 37.0, "dodge": 0.14},
 	}

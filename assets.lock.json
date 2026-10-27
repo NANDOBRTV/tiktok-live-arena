@@ -12,50 +12,18 @@
   },
   "bundles": {},
   "assets": {
-    "assets/livearena/characters/capitao_brasa.png": {
-      "path": "/manus-storage/game/sha256/fe6003c60e084528805d869f1a64bac74b2c881c0246a45488c1b4799b67e12f.png",
-      "sha256": "sha256:fe6003c60e084528805d869f1a64bac74b2c881c0246a45488c1b4799b67e12f",
-      "size": 4197076,
-      "assetType": "image",
-      "groupId": "livearena",
-      "used": true
-    },
     "assets/livearena/characters/flavio_bolsonaro.png": {
-      "path": "/manus-storage/game/sha256/4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91.png",
-      "sha256": "sha256:4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91",
-      "size": 5014390,
-      "assetType": "image",
-      "groupId": "livearena",
-      "used": true
-    },
-    "assets/livearena/characters/guardiao_dourado.png": {
-      "path": "/manus-storage/game/sha256/236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda.png",
-      "sha256": "sha256:236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda",
-      "size": 4964705,
+      "path": "/manus-storage/game/sha256/6cdfb57759f7af81d464e1a69806452fff71fa3fcb6d45b49ae40be20ca460d5.png",
+      "sha256": "sha256:6cdfb57759f7af81d464e1a69806452fff71fa3fcb6d45b49ae40be20ca460d5",
+      "size": 4008947,
       "assetType": "image",
       "groupId": "livearena",
       "used": true
     },
     "assets/livearena/characters/lula.png": {
-      "path": "/manus-storage/game/sha256/8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0.png",
-      "sha256": "sha256:8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0",
-      "size": 5258162,
-      "assetType": "image",
-      "groupId": "livearena",
-      "used": true
-    },
-    "assets/livearena/characters/raio_azul.png": {
-      "path": "/manus-storage/game/sha256/67496cba3f451e69ae1e3d16ac46312121236cf6e87d0f982a63240a6fe61a45.png",
-      "sha256": "sha256:67496cba3f451e69ae1e3d16ac46312121236cf6e87d0f982a63240a6fe61a45",
-      "size": 3777520,
-      "assetType": "image",
-      "groupId": "livearena",
-      "used": true
-    },
-    "assets/livearena/characters/sombra_negra.png": {
-      "path": "/manus-storage/game/sha256/e898b0eedce8345419fd775102206294a4f9b429e2a26e29a568d64adc19a88f.png",
-      "sha256": "sha256:e898b0eedce8345419fd775102206294a4f9b429e2a26e29a568d64adc19a88f",
-      "size": 3537003,
+      "path": "/manus-storage/game/sha256/67729444667afe7ebbd0b1bfb6e0b7e6a8f831a0d122b93cb8cb1cf88cd6f039.png",
+      "sha256": "sha256:67729444667afe7ebbd0b1bfb6e0b7e6a8f831a0d122b93cb8cb1cf88cd6f039",
+      "size": 4405667,
       "assetType": "image",
       "groupId": "livearena",
       "used": true

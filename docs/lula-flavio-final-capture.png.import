@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci2u6w1qc2iw6"
-path="res://.godot/imported/guardiao_dourado.png-933ed34b71957d85a5b7d11765c52394.ctex"
+uid="uid://dm7gns1w1rpoo"
+path="res://.godot/imported/lula-flavio-final-capture.png-80d19a6e28f9fbdc0899f2f6baf85662.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/livearena/characters/guardiao_dourado.png"
-dest_files=["res://.godot/imported/guardiao_dourado.png-933ed34b71957d85a5b7d11765c52394.ctex"]
+source_file="res://docs/lula-flavio-final-capture.png"
+dest_files=["res://.godot/imported/lula-flavio-final-capture.png-80d19a6e28f9fbdc0899f2f6baf85662.ctex"]
 
 [params]
 
