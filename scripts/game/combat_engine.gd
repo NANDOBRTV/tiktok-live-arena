@@ -4,7 +4,7 @@ extends RefCounted
 ## Motor autoritativo local da demonstração. Um backend autorizado poderá reutilizar o mesmo contrato.
 
 const MAX_ROUNDS := 3
-const START_HP := 100.0
+const START_HP := 160.0
 const START_ENERGY := 18.0
 
 var fighters: Array[Dictionary] = []
@@ -16,6 +16,8 @@ var round_duration := 45.0
 var elapsed := 0.0
 var break_timer := 0.0
 var decision_timer := 0.0
+var countdown_timer := 0.0
+var countdown_mark := 0
 var rng := RandomNumberGenerator.new()
 var winner_index := -1
 var last_event := {}
@@ -32,11 +34,13 @@ func setup(left_id: String, right_id: String, duration: float = 45.0) -> void:
 	winner_index = -1
 	elapsed = 0.0
 	break_timer = 0.0
-	decision_timer = 0.5
+	decision_timer = 0.75
+	countdown_timer = 3.0
+	countdown_mark = 3
 	paused = false
-	state = "active"
+	state = "countdown"
 	fighters = [_make_fighter(left_id, 0), _make_fighter(right_id, 1)]
-	last_event = {"kind": "round_start", "round": 1, "text": "RODADA 1 — LUTEM!"}
+	last_event = {"kind": "countdown", "count": 3, "round": 1, "text": "3"}
 
 
 func _make_fighter(id: String, side: int) -> Dictionary:
@@ -69,6 +73,22 @@ func tick(delta: float) -> Array[Dictionary]:
 	var events: Array[Dictionary] = []
 	if state == "idle" or state == "finished" or paused:
 		return events
+	if state == "countdown":
+		countdown_timer -= delta
+		var mark := int(ceil(countdown_timer))
+		if mark < countdown_mark and mark > 0:
+			countdown_mark = mark
+			var count_event := {"kind": "countdown", "count": mark, "text": str(mark)}
+			events.append(count_event)
+			last_event = count_event
+		if countdown_timer <= 0.0:
+			state = "active"
+			elapsed = 0.0
+			decision_timer = 1.0
+			var start_event := {"kind": "round_start", "round": round_number, "text": "RODADA %d — LUTEM!" % round_number}
+			events.append(start_event)
+			last_event = start_event
+		return events
 	if state == "round_break":
 		break_timer -= delta
 		if break_timer <= 0.0:
@@ -90,7 +110,7 @@ func tick(delta: float) -> Array[Dictionary]:
 		_end_round(-1, "TEMPO ESGOTADO", events)
 		return events
 	if decision_timer <= 0.0:
-		decision_timer = 0.48
+		decision_timer = 0.78
 		_decide_action(events)
 	return events
 
@@ -102,7 +122,7 @@ func _decide_action(events: Array[Dictionary]) -> void:
 	var right: Dictionary = fighters[1]
 	var distance := absf(float(right["x"]) - float(left["x"]))
 	if distance > 0.30:
-		var step := 0.018
+		var step := 0.012
 		left["x"] = move_toward(float(left["x"]), 0.46, step * (0.8 + float(left["speed"]) / 30.0))
 		right["x"] = move_toward(float(right["x"]), 0.54, step * (0.8 + float(right["speed"]) / 30.0))
 		left["action"] = "approach"
@@ -138,28 +158,28 @@ func _resolve_attack(attacker_index: int, defender_index: int, events: Array[Dic
 	var attacker: Dictionary = fighters[attacker_index]
 	var defender: Dictionary = fighters[defender_index]
 	var special := float(attacker["energy"]) >= 100.0 and float(attacker["special_cooldown"]) <= 0.0
-	var critical := rng.randf() < (0.12 + float(attacker["speed"]) / 500.0)
+	var critical := rng.randf() < (0.08 + float(attacker["speed"]) / 700.0)
 	var damage := 0.0
 	if special:
-		damage = float(attacker["special_power"])
+		damage = float(attacker["special_power"]) * 0.72
 		attacker["energy"] = 0.0
-		attacker["special_cooldown"] = 4.0
+		attacker["special_cooldown"] = 6.0
 		attacker["action"] = "special"
 		attacker["action_time"] = 1.1
 	else:
-		damage = maxf(5.0, float(attacker["attack"]) - float(defender["defense"]) * 0.32)
+		damage = maxf(7.0, (float(attacker["attack"]) - float(defender["defense"]) * 0.32) * 0.62)
 		if critical:
-			damage *= 1.55
-		attacker["energy"] = minf(100.0, float(attacker["energy"]) + 11.0)
+			damage *= 1.28
+		attacker["energy"] = minf(100.0, float(attacker["energy"]) + 9.0)
 		attacker["action"] = "attack"
-		attacker["action_time"] = 0.64
-	attacker["attack_cooldown"] = maxf(0.35, 1.2 - float(attacker["speed"]) / 40.0)
+		attacker["action_time"] = 0.82
+	attacker["attack_cooldown"] = maxf(1.45, 2.05 - float(attacker["speed"]) / 55.0)
 	if float(defender["invulnerable"]) > 0.0:
 		damage = 0.0
 		defender["action"] = "dodge"
 		defender["action_time"] = 0.5
 	elif float(defender["guard_timer"]) > 0.0:
-		damage *= 0.38
+		damage *= 0.25
 		defender["action"] = "defend"
 		defender["action_time"] = 0.52
 	elif rng.randf() < float(defender["dodge"]):
@@ -221,8 +241,10 @@ func _end_round(round_winner: int, reason: String, events: Array[Dictionary]) ->
 func _start_next_round(events: Array[Dictionary]) -> void:
 	round_number += 1
 	elapsed = 0.0
-	decision_timer = 0.4
-	state = "active"
+	decision_timer = 0.75
+	countdown_timer = 2.0
+	countdown_mark = 2
+	state = "countdown"
 	for fighter: Dictionary in fighters:
 		fighter["hp"] = START_HP
 		fighter["energy"] = START_ENERGY
@@ -234,7 +256,7 @@ func _start_next_round(events: Array[Dictionary]) -> void:
 		fighter["action"] = "idle"
 		fighter["action_time"] = 0.0
 		fighter["x"] = 0.22 if fighter["side"] == 0 else 0.78
-	var event := {"kind": "round_start", "round": round_number, "text": "RODADA %d — NOVO ASSALTO" % round_number}
+	var event := {"kind": "countdown", "count": 2, "round": round_number, "text": "2"}
 	events.append(event)
 	last_event = event
 
@@ -265,7 +287,7 @@ func apply_gift(gift_type: String, target_index: int, quantity: int, multiplier:
 			text = "Carro: boost de velocidade para %s" % target["name"]
 		"foguete":
 			var enemy: Dictionary = fighters[1 - target_index]
-			enemy["hp"] = maxf(0.0, float(enemy["hp"]) - 22.0 * amount)
+			enemy["hp"] = maxf(0.0, float(enemy["hp"]) - 14.0 * amount)
 			target["energy"] = minf(100.0, float(target["energy"]) + 25.0 * amount)
 			target["action"] = "special"
 			target["action_time"] = 0.9
@@ -277,7 +299,7 @@ func apply_gift(gift_type: String, target_index: int, quantity: int, multiplier:
 			text = "Arco-íris: energia e proteção para %s" % target["name"]
 		"coroa":
 			var rival: Dictionary = fighters[1 - target_index]
-			rival["hp"] = maxf(0.0, float(rival["hp"]) - 36.0 * amount)
+			rival["hp"] = maxf(0.0, float(rival["hp"]) - 24.0 * amount)
 			target["energy"] = minf(100.0, float(target["energy"]) + 42.0 * amount)
 			target["action"] = "special"
 			target["action_time"] = 1.2
@@ -297,7 +319,7 @@ func pause() -> void:
 
 
 func resume() -> void:
-	if state == "active":
+	if state in ["active", "countdown"]:
 		paused = false
 
 
