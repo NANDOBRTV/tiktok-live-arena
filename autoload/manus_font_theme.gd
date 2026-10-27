@@ -8,11 +8,12 @@ func _enter_tree() -> void:
 	_regular = load("res://assets/template/fonts/ui_regular.tres") as Font
 	if _regular == null:
 		# The web export and headless CI must remain bootable when optional bundled webfonts are absent.
-		var fallback := SystemFont.new()
-		fallback.font_names = PackedStringArray(["Arial", "Liberation Sans", "sans-serif"])
-		_regular = fallback
-	var medium := load("res://assets/template/fonts/ui_medium.tres") as Font
-	var bold := load("res://assets/template/fonts/ui_bold.tres") as Font
+		 _regular = ThemeDB.fallback_font
+	var medium: Font = null
+	var bold: Font = null
+	if ResourceLoader.exists("res://assets/template/fonts/ui_regular.tres"):
+		medium = load("res://assets/template/fonts/ui_medium.tres") as Font
+		bold = load("res://assets/template/fonts/ui_bold.tres") as Font
 	_theme = GameFonts.create_theme(_regular, medium, bold)
 	get_tree().node_added.connect(_bind_node)
 	_bind_tree(get_tree().root)
