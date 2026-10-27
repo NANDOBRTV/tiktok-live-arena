@@ -457,6 +457,8 @@ func _start_demo_battle() -> void:
 	fighter_ids = [_selected_id(left_select, "lula"), _selected_id(right_select, "flavio-bolsonaro")]
 	engine.setup(fighter_ids[0], fighter_ids[1], match_duration)
 	gifts.reset()
+	special_label.text = "3"
+	special_label.modulate.a = 1.0
 	battle_root.visible = true
 	title_root.visible = false
 	battle_mode_label.text = "MODO DEMONSTRAÇÃO  •  EVENTOS SIMULADOS"
@@ -704,6 +706,8 @@ func _restart_battle() -> void:
 	battle_active = true
 	engine.setup(fighter_ids[0], fighter_ids[1], match_duration)
 	gifts.reset()
+	special_label.text = "3"
+	special_label.modulate.a = 1.0
 	event_lines.clear()
 	_push_event("[color=#55dcff]DEMO[/color] partida reiniciada")
 	_sync_battle()
