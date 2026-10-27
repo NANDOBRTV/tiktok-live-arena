@@ -1,6 +1,6 @@
-# TikTok LIVE Arena
+# TikTok LIVE Arena — Brasília em Disputa
 
-Jogo HTML interativo para testar uma arena controlada por eventos do TikTok LIVE. Projeto independente e baseado em um conector comunitário não oficial.
+Jogo HTML interativo de sátira política brasileira para TikTok LIVE. A comunidade escolhe um lado do debate humorístico entre Lula e Bolsonaro e os eventos recebidos podem alterar o placar. Projeto independente, com conector comunitário não oficial.
 
 ## Abrir o jogo
 - Hospedagem: https://tiktok-live-arena.onrender.com
@@ -12,7 +12,7 @@ Jogo HTML interativo para testar uma arena controlada por eventos do TikTok LIVE
 2. Inicie uma LIVE pública no TikTok e informe seu nome de usuário público (não informe senha).
 3. Toque em **Conectar LIVE**.
 4. Confira o estado da conexão e os eventos no painel.
-5. Os comentários `!atacar` e `!curar`, curtidas, presentes e entradas de espectadores podem acionar a arena quando o conector receber esses eventos.
+5. Comandos: `!lula` apoia o lado Lula; `!bolsonaro` apoia o lado Bolsonaro; `!debate` provoca uma reviravolta humorística. Curtidas e presentes somam pontos ao lado escolhido mais recentemente pelo espectador, quando o evento é recebido e identificado pelo conector. Use **Testar animação local** para conferir a interface sem uma LIVE real.
 
 ## Desenvolvimento local
 Requer Node.js 20 ou superior.
