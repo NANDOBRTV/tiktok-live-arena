@@ -25,6 +25,7 @@ func _capture() -> void:
 		await process_frame
 		await process_frame
 		await process_frame
+		await create_timer(1.2).timeout
 	var image: Image = get_root().get_texture().get_image()
 	image.save_png(capture_path)
 	main.queue_free()

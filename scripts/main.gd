@@ -598,9 +598,16 @@ func _sync_battle() -> void:
 	timer_label.text = "%02d:%02d" % [int(remaining) / 60, int(remaining) % 60]
 	fighter_nodes[0].texture = _texture_for(str(left["id"]))
 	fighter_nodes[1].texture = _texture_for(str(right["id"]))
+	_sync_fighter_positions(fighters)
+	for index: int in 2:
+		if str(fighters[index].get("action", "")) == "approach":
+			if not bool(fighter_nodes[index].get_meta("approach_motion", false)):
+				fighter_nodes[index].set_meta("approach_motion", true)
+				_animate_fighter(index, "approach")
+		else:
+			fighter_nodes[index].set_meta("approach_motion", false)
 	if state["state"] == "finished" and not result_panel.visible:
 		_show_result({"winner": int(state["winner"]), "score": state["score"], "text": "Partida encerrada"})
-	_apply_layout()
 
 
 func _animate_fighter(index: int, action: String) -> void:
@@ -628,6 +635,9 @@ func _animate_fighter(index: int, action: String) -> void:
 		"dodge":
 			tween.tween_property(node, "position", base + Vector2(-34.0 * direction, -12.0), 0.16)
 			tween.tween_property(node, "modulate", Color(0.7, 0.85, 1.25, 1.0), 0.16)
+		"approach":
+			tween.tween_property(node, "position", base + Vector2(0.0, -6.0), 0.16)
+			tween.tween_property(node, "scale", Vector2(1.02, 0.98), 0.16)
 		_:
 			tween.tween_property(node, "position", base + Vector2(0.0, -7.0), 0.16)
 	tween.chain().set_parallel(true)
@@ -752,6 +762,20 @@ func _layout_fighters() -> void:
 		fighter_nodes[1].position = Vector2(size.x * 0.84 - sprite_size.x * 0.5, size.y * 0.34)
 	for node: TextureRect in fighter_nodes:
 		node.pivot_offset = node.size * 0.5
+	if engine != null and engine.fighters.size() == 2:
+		_sync_fighter_positions(engine.fighters)
+
+
+func _sync_fighter_positions(fighters: Array) -> void:
+	if fighters.size() < 2 or fighter_nodes.size() < 2:
+		return
+	var portrait := size.y > size.x * 1.12
+	var y_values := [size.y * (0.53 if portrait else 0.34), size.y * (0.33 if portrait else 0.34)]
+	for index: int in 2:
+		var center_x := size.x * clampf(float(fighters[index].get("x", 0.5)), 0.12, 0.88)
+		var node := fighter_nodes[index]
+		node.position.x = center_x - node.size.x * 0.5
+		node.position.y = float(y_values[index])
 
 
 func _apply_layout() -> void:
