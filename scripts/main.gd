@@ -5,9 +5,9 @@ const GiftManagerType = preload("res://scripts/integration/gift_manager.gd")
 const TikTokConnectorType = preload("res://scripts/integration/tiktok_live_connector.gd")
 const FxType = preload("res://scripts/effects/arena_fx.gd")
 
-const ARENA_ART = preload("res://assets/livearena/environment/arena_futurista.png")
-const LULA_ART = preload("res://assets/livearena/characters/lula.png")
-const FLAVIO_ART = preload("res://assets/livearena/characters/flavio_bolsonaro.png")
+const ARENA_ART = preload("res://assets/livearena/environment/arena_futurista.svg")
+const LULA_ART = preload("res://assets/livearena/characters/lula.svg")
+const FLAVIO_ART = preload("res://assets/livearena/characters/flavio_bolsonaro.svg")
 
 const BG := Color("070b18")
 const PANEL := Color("111a2d")
@@ -568,7 +568,13 @@ func _emit_gift_fx(result: Dictionary) -> void:
 
 func _handle_engine_event(event: Dictionary) -> void:
 	var kind := str(event.get("kind", ""))
-	if kind == "round_start":
+	if kind == "countdown":
+		special_label.text = str(event.get("count", 3))
+		special_label.modulate.a = 1.0
+		var countdown_tween := create_tween()
+		countdown_tween.tween_property(special_label, "scale", Vector2(1.35, 1.35), 0.18)
+		countdown_tween.tween_property(special_label, "scale", Vector2.ONE, 0.22)
+	elif kind == "round_start":
 		_push_event("[color=#ffc857]%s[/color]" % event.get("text", "Nova rodada"))
 		special_label.text = str(event.get("text", ""))
 		_emit_center_fx(GOLD, "special")
