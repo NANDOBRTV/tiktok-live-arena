@@ -256,9 +256,11 @@ func _build_battle() -> void:
 	_anchored(right_stats, 0.66, 0.16, 0.96, 0.185)
 	battle_root.add_child(right_stats)
 	left_hp = _bar(FIRE)
+	left_hp.max_value = 160.0
 	_anchored(left_hp, 0.04, 0.19, 0.34, 0.22)
 	battle_root.add_child(left_hp)
 	right_hp = _bar(CYAN)
+	right_hp.max_value = 160.0
 	_anchored(right_hp, 0.66, 0.19, 0.96, 0.22)
 	battle_root.add_child(right_hp)
 	left_energy = _bar(GOLD)
