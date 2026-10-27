@@ -45,7 +45,7 @@ func _test_catalog() -> void:
 func _test_combat_loop() -> void:
 	var combat := EngineType.new()
 	combat.setup("lula", "flavio-bolsonaro", 30.0)
-	_check(combat.state == "active", "partida deve iniciar ativa")
+	_check(combat.state == "countdown", "partida deve iniciar com contagem regressiva")
 	_check(combat.fighters.size() == 2, "partida deve criar dois lutadores")
 	var saw_action := false
 	for index: int in 360:
@@ -89,9 +89,9 @@ func _test_live_guard() -> void:
 
 func _test_assets() -> void:
 	for path: String in [
-		"res://assets/livearena/environment/arena_futurista.png",
-			"res://assets/livearena/characters/lula.png",
-			"res://assets/livearena/characters/flavio_bolsonaro.png",
+		"res://assets/livearena/environment/arena_futurista.svg",
+			"res://assets/livearena/characters/lula.svg",
+			"res://assets/livearena/characters/flavio_bolsonaro.svg",
 	]:
 		_check(ResourceLoader.exists(path), "ativo original ausente: " + path)
 	_check(ResourceLoader.exists("res://scenes/main.tscn"), "cena principal deve existir")
