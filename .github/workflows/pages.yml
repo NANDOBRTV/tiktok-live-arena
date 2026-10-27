@@ -1,4 +1,4 @@
-name: Deploy TikTok Live Arena to GitHub Pages
+name: Deploy TikTok LIVE Arena to GitHub Pages
 
 on:
   push:
@@ -20,12 +20,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install Godot 4.7.2 and Web export templates
+        uses: solarlabyrinth/action-setup-godot@v3
+        with:
+          version: 4.7.2-stable
+          export-templates: true
+
+      - name: Import project resources
+        run: godot --headless --path . --editor --quit
+
+      - name: Run combat and integration tests
+        run: godot --headless --path . --scene res://test/test_suite.tscn
+
+      - name: Export current game for the web
+        run: |
+          mkdir -p dist
+          godot --headless --path . --export-release "Web" dist/index.html
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload site artifact
+
+      - name: Upload built game
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
+
   deploy:
     environment:
       name: github-pages
