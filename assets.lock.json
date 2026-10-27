@@ -20,10 +20,26 @@
       "groupId": "livearena",
       "used": true
     },
+    "assets/livearena/characters/flavio_bolsonaro.png": {
+      "path": "/manus-storage/game/sha256/4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91.png",
+      "sha256": "sha256:4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91",
+      "size": 5014390,
+      "assetType": "image",
+      "groupId": "livearena",
+      "used": true
+    },
     "assets/livearena/characters/guardiao_dourado.png": {
       "path": "/manus-storage/game/sha256/236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda.png",
       "sha256": "sha256:236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda",
       "size": 4964705,
+      "assetType": "image",
+      "groupId": "livearena",
+      "used": true
+    },
+    "assets/livearena/characters/lula.png": {
+      "path": "/manus-storage/game/sha256/8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0.png",
+      "sha256": "sha256:8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0",
+      "size": 5258162,
       "assetType": "image",
       "groupId": "livearena",
       "used": true

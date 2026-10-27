@@ -313,4 +313,6 @@ static func _catalog() -> Dictionary:
 		"raio-azul": {"name": "Raio Azul", "special": "Tempestade Elétrica", "attack": 21.0, "defense": 9.0, "speed": 22.0, "special_power": 34.0, "dodge": 0.19},
 		"sombra-negra": {"name": "Sombra Negra", "special": "Corte das Sombras", "attack": 23.0, "defense": 10.0, "speed": 20.0, "special_power": 36.0, "dodge": 0.24},
 		"guardiao-dourado": {"name": "Guardião Dourado", "special": "Impacto Titânico", "attack": 30.0, "defense": 18.0, "speed": 9.0, "special_power": 43.0, "dodge": 0.07},
+		"lula": {"name": "Lula", "special": "Pulso Popular", "attack": 26.0, "defense": 13.0, "speed": 12.0, "special_power": 39.0, "dodge": 0.11},
+		"flavio-bolsonaro": {"name": "Flávio Bolsonaro", "special": "Impulso Esmeralda", "attack": 24.0, "defense": 12.0, "speed": 16.0, "special_power": 37.0, "dodge": 0.14},
 	}

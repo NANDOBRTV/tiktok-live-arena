@@ -24,6 +24,28 @@
       "used": true,
       "usedBy": []
     },
+    "assets/livearena/characters/flavio_bolsonaro.png": {
+      "declaredUseEvidence": [],
+      "generator": {},
+      "inputs": [],
+      "license": {},
+      "origin": "unknown",
+      "referenceEvidence": [
+        "scripts/main.gd"
+      ],
+      "regions": [],
+      "sha256": "sha256:4fd6da62872c5f557397a98c7045aa8f4e9bb3e76af680221a0d5ae6d8c84c91",
+      "shipped": true,
+      "size": 5014390,
+      "source": {},
+      "status": "present",
+      "transformations": [],
+      "useEvidence": [
+        "scripts/main.gd"
+      ],
+      "used": true,
+      "usedBy": []
+    },
     "assets/livearena/characters/guardiao_dourado.png": {
       "declaredUseEvidence": [],
       "generator": {},
@@ -37,6 +59,28 @@
       "sha256": "sha256:236f65854881cdfbbe74b45fa4edcdb31f4e97c9f91d9453d764f26ee8f5fcda",
       "shipped": true,
       "size": 4964705,
+      "source": {},
+      "status": "present",
+      "transformations": [],
+      "useEvidence": [
+        "scripts/main.gd"
+      ],
+      "used": true,
+      "usedBy": []
+    },
+    "assets/livearena/characters/lula.png": {
+      "declaredUseEvidence": [],
+      "generator": {},
+      "inputs": [],
+      "license": {},
+      "origin": "unknown",
+      "referenceEvidence": [
+        "scripts/main.gd"
+      ],
+      "regions": [],
+      "sha256": "sha256:8f2dc38ec04f24418ebf7b27a8be3df58a776cb934ddd2c6d0945b681f3d85d0",
+      "shipped": true,
+      "size": 5258162,
       "source": {},
       "status": "present",
       "transformations": [],
@@ -467,9 +511,9 @@
         "sourcePaths": []
       }
     ],
-    "pckSha256": "sha256:3f7f888b898c92586264fcb9014bdf2ae9f1863f883d790ecc733c5334386f32",
+    "pckSha256": "sha256:ea98cf61e611e4300f9030ddfa78f09ee9f71bc2111cb1421b248baf3e0e59b5",
     "profile": "release",
-    "sourceFingerprint": "sha256:bbd518f4a28954d6d95b9ff7ff14d684c6e0ed456d8ca1e4201b18bc2f04dabd"
+    "sourceFingerprint": "sha256:ecaf1e85909d3417f651627ffb49d58a57695016feab75fed4dfb418f5914cc2"
   },
   "procedures": {},
   "summary": {
@@ -502,9 +546,9 @@
     },
     "files": {
       "downloaded": 0,
-      "retained": 20,
-      "shipped": 20,
-      "used": 7
+      "retained": 22,
+      "shipped": 22,
+      "used": 9
     },
     "origins": {
       "ai": {
@@ -538,9 +582,9 @@
         "used": 2
       },
       "unknown": {
-        "retained": 5,
-        "shipped": 5,
-        "used": 5
+        "retained": 7,
+        "shipped": 7,
+        "used": 7
       }
     },
     "packs": {

@@ -3,11 +3,13 @@ extends SceneTree
 var main: Control
 var capture_path := ""
 var game_mode := false
+var new_characters := false
 
 
 func _initialize() -> void:
 	capture_path = OS.get_environment("ARENA_CAPTURE_PATH")
 	game_mode = OS.get_environment("ARENA_CAPTURE_GAME") == "1"
+	new_characters = OS.get_environment("ARENA_NEW_CHARACTERS") == "1"
 	if capture_path.is_empty():
 		push_error("ARENA_CAPTURE_PATH ausente")
 		quit(2)
@@ -21,6 +23,9 @@ func _capture() -> void:
 	await process_frame
 	await process_frame
 	if game_mode:
+		if new_characters:
+			(main.get("left_select") as OptionButton).select(4)
+			(main.get("right_select") as OptionButton).select(5)
 		main.call("_start_demo_battle")
 		await process_frame
 		await process_frame

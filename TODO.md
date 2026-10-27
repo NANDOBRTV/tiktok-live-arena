@@ -4,7 +4,7 @@
 
 - Arena futurista 2D com arquibancadas, telões, iluminação, profundidade e atmosfera.
 - Identidade visual original em português do Brasil, sem copiar personagens, logotipos ou artes protegidos.
-- Quatro lutadores originais e visualmente distintos: Capitão Brasa, Raio Azul, Sombra Negra e Guardião Dourado.
+- Seis lutadores visualmente distintos: Capitão Brasa, Raio Azul, Sombra Negra, Guardião Dourado, Lula e Flávio Bolsonaro. Lula e Flávio Bolsonaro são avatares fictícios e satíricos de jogo, sem slogans, logotipos ou afirmações sobre a vida real.
 - Tela inicial com seleção de lutadores, iniciar jogo, configurar arena, modo demonstração, conexão TikTok LIVE, modo transmissão e estado visível da integração.
 - HUD responsivo com nomes, vida, energia, rodada, cronômetro, placar, especial, histórico e eventos de torcida.
 

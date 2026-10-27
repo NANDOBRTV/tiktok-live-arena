@@ -36,8 +36,8 @@ func _check(condition: bool, message: String) -> void:
 
 func _test_catalog() -> void:
 	var catalog := EngineType.catalog()
-	_check(catalog.size() == 4, "quatro lutadores originais devem existir")
-	for id: String in ["capitao-brasa", "raio-azul", "sombra-negra", "guardiao-dourado"]:
+	_check(catalog.size() == 6, "seis lutadores devem existir")
+	for id: String in ["capitao-brasa", "raio-azul", "sombra-negra", "guardiao-dourado", "lula", "flavio-bolsonaro"]:
 		_check(catalog.has(id), "lutador ausente: " + id)
 		_check(str(catalog[id]["special"]).length() > 4, "especial ausente: " + id)
 
@@ -88,8 +88,10 @@ func _test_assets() -> void:
 		"res://assets/livearena/environment/arena_futurista.png",
 		"res://assets/livearena/characters/capitao_brasa.png",
 		"res://assets/livearena/characters/raio_azul.png",
-		"res://assets/livearena/characters/sombra_negra.png",
-		"res://assets/livearena/characters/guardiao_dourado.png",
+			"res://assets/livearena/characters/sombra_negra.png",
+			"res://assets/livearena/characters/guardiao_dourado.png",
+			"res://assets/livearena/characters/lula.png",
+			"res://assets/livearena/characters/flavio_bolsonaro.png",
 	]:
 		_check(ResourceLoader.exists(path), "ativo original ausente: " + path)
 	_check(ResourceLoader.exists("res://scenes/main.tscn"), "cena principal deve existir")

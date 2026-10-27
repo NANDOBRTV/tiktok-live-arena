@@ -1,6 +1,6 @@
 # TikTok LIVE Arena
 
-Jogo web 2D de batalha automática para transmissões ao vivo. A versão atual entrega uma arena funcional local, quatro lutadores originais gerados para o projeto, combate automático por regras, presentes simulados, histórico local e modo de transmissão limpo para captura no OBS.
+Jogo web 2D de batalha automática para transmissões ao vivo. A versão atual entrega uma arena funcional local, seis lutadores originais ou satíricos gerados para o projeto, combate automático por regras, presentes simulados, histórico local e modo de transmissão limpo para captura no OBS.
 
 ## Executar localmente
 
@@ -39,7 +39,9 @@ Clique em **Abrir modo transmissão**. O modo oculta controles administrativos e
 - `scripts/integration/tiktok_live_adapter.gd`: adaptador isolado com estado honesto de conexão.
 - `scripts/effects/arena_fx.gd`: efeitos visuais de impactos, especiais e presentes.
 - `test/test_suite.gd`: verificações automatizadas do loop, presentes, integração e ativos.
-- `assets/livearena/`: arte original dos quatro lutadores e da arena futurista.
+- `assets/livearena/`: arte original dos seis lutadores e da arena futurista.
+
+O elenco inclui Capitão Brasa, Raio Azul, Sombra Negra, Guardião Dourado, Lula e Flávio Bolsonaro. Os dois últimos são apresentados como avatares fictícios e satíricos de jogo, sem slogans, logotipos ou afirmações sobre a vida real.
 
 ## Integração TikTok LIVE
 

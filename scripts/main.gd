@@ -10,6 +10,8 @@ const CAPITAO_ART = preload("res://assets/livearena/characters/capitao_brasa.png
 const RAIO_ART = preload("res://assets/livearena/characters/raio_azul.png")
 const SOMBRA_ART = preload("res://assets/livearena/characters/sombra_negra.png")
 const GUARDIAO_ART = preload("res://assets/livearena/characters/guardiao_dourado.png")
+const LULA_ART = preload("res://assets/livearena/characters/lula.png")
+const FLAVIO_ART = preload("res://assets/livearena/characters/flavio_bolsonaro.png")
 
 const BG := Color("070b18")
 const PANEL := Color("111a2d")
@@ -801,6 +803,8 @@ func _texture_for(id: String) -> Texture2D:
 		"raio-azul": return RAIO_ART
 		"sombra-negra": return SOMBRA_ART
 		"guardiao-dourado": return GUARDIAO_ART
+		"lula": return LULA_ART
+		"flavio-bolsonaro": return FLAVIO_ART
 	return CAPITAO_ART
 
 
