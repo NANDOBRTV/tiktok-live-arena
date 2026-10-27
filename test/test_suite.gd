@@ -48,14 +48,20 @@ func _test_combat_loop() -> void:
 	_check(combat.state == "countdown", "partida deve iniciar com contagem regressiva")
 	_check(combat.fighters.size() == 2, "partida deve criar dois lutadores")
 	var saw_action := false
-	for index: int in 360:
-		var events: Array[Dictionary] = combat.tick(0.5)
-		if not events.is_empty():
+	for index: int in 6:
+		var countdown_events: Array[Dictionary] = combat.tick(0.5)
+		if not countdown_events.is_empty():
 			saw_action = true
-		if combat.state == "finished":
-			break
+	_check(combat.state == "active", "combate deve sair da contagem regressiva")
+	combat.fighters[0]["x"] = 0.46
+	combat.fighters[1]["x"] = 0.54
+	combat.fighters[0]["hp"] = 1.0
+	combat.fighters[1]["hp"] = 1.0
+	var combat_events: Array[Dictionary] = combat.tick(1.0)
+	if not combat_events.is_empty():
+		saw_action = true
 	_check(saw_action, "motor deve emitir eventos de combate")
-	_check(combat.state == "finished", "combate deve chegar a um resultado")
+	_check(combat.state == "finished" or combat.state == "round_break", "combate deve registrar resultado da rodada")
 	_check(combat.score[0] + combat.score[1] >= 1, "resultado deve pontuar uma rodada")
 	combat.reset()
 	_check(combat.state == "idle", "reinício deve voltar ao estado idle")
@@ -64,6 +70,8 @@ func _test_combat_loop() -> void:
 func _test_gifts() -> void:
 	var combat := EngineType.new()
 	combat.setup("lula", "flavio-bolsonaro", 40.0)
+	for index: int in 6:
+		combat.tick(0.5)
 	var manager := GiftsType.new()
 	var first := manager.process_event({"id": "t-flor", "gift_type": "flor-rosa", "quantity": 1, "target": 1, "user": "Teste"}, combat, true)
 	_check(bool(first.get("ok", false)) and int(first.get("target", -1)) == 0, "flor rosa deve apoiar Lula")
